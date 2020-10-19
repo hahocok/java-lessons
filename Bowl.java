@@ -10,6 +10,12 @@ public class Bowl {
     public Bowl(int volume, int food) {
         this.volume = volume;
         this.food = food;
+        System.out.println("Создана миска объемом " + volume + " и насыпано " + food + " корма");
+    }
+
+    public void full() {
+        food = volume;
+        System.out.println("миска наполнена")
     }
 
     public void setFood(int food) {

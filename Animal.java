@@ -1,16 +1,11 @@
 package com.company;
 
-public class Animal {
+public abstract class Animal {
+    public int maxRunning;
+    public float maxJump;
+    public int maxSwim;
 
-    public void run(int distance) {
-        System.out.println("run: ");
-    }
-
-    public void swim(int distance) {
-        System.out.println("swim: ");
-    }
-
-    public void jump(int height) {
-        System.out.println("jump: ");
-    }
+    public abstract void run(int distance);
+    public abstract void swim(int distance);
+    public abstract void jump(int height);
 }
