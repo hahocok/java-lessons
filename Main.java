@@ -18,7 +18,7 @@ public class Main {
     }
 
     public boolean checkRange(int a, int b) {
-        return a + b > 10 && a + b < 20;
+        return a + b >= 10 && a + b <= 20;
     }
 
     public void checkNum(int a) {
