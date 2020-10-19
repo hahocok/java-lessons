@@ -3,7 +3,6 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-    	/*
 		Employee[] employees = new Employee[5];
 
 		employees[0] = new Employee("Ivanov Ivan", "Engineer", "iviivan@mail.com", "89991112300", 30000, 30);
@@ -18,30 +17,5 @@ public class Main {
 
 		Dog dog = new Dog();
 		dog.run(150);
-
-    	 */
-
-		//----------------------------- test -------------------
-
-		int[][] arr = new int[8][2];
-
-		int x = 1;
-		int y = 1;
-
-		for (int i = 0; i < arr.length; i++) {
-			//int[] a = {(int)(Math.random()*10), (int)(Math.random()*10)};
-			int[] a = {x, y};
-			arr[i][0] = a[0];
-			//arr[i][1] = a[1];
-			x++;
-			y++;
-		}
-
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < 2; j++) {
-				System.out.print(arr[i][j]);
-			}
-			System.out.println();
-		}
     }
 }

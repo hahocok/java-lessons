@@ -1,35 +1,31 @@
 package com.company;
 
-import java.util.Random;
-
 public class Dog extends Animal {
-    //public int maxRunning = new Random().nextInt(1000);
-    public int maxRunning = 100 * (int)(Math.random()*10);
-    public float maxJump = 0.5f;
-    public int maxSwim = 10;
 
     public Dog() {
+        maxRunning = 100 * (int)(Math.random()*10);
+        maxJump = 0.5f;
+        maxSwim = 10;
     }
 
-    public Dog(int maxRunning) {
+    public Dog(int maxRunning, float maxJump, int maxSwim) {
         this.maxRunning = maxRunning;
+        this.maxJump = maxJump;
+        this.maxSwim = maxSwim;
     }
 
     @Override
     public void run(int distance) {
         System.out.println("run: " + (distance <= maxRunning));
-        super.run(distance);
     }
 
     @Override
     public void swim(int distance) {
         System.out.println("swim: " + (distance <= maxJump));
-        super.swim(distance);
     }
 
     @Override
     public void jump(int height) {
         System.out.println("jump: " + (height <= maxSwim));
-        super.jump(height);
     }
 }
