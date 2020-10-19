@@ -24,7 +24,7 @@ public class Main {
         int[] nums2 = new int[8];
 
         for (int i = 0; i <= nums2.length - 1; i++) {
-            nums2[i] += i * 3;
+            nums2[i] = i * 3;
         }
 
         /*
@@ -50,6 +50,14 @@ public class Main {
             nums4[i][i] = 1;
             nums4[j][j] = 1;
         }
+
+        /*
+        7. *Написать метод, которому на вход подается одномерный массив и число n
+        (может быть положительным или отрицательным), при этом метод должен сместить все элементы
+        массива на n позиций. Нельзя пользоваться вспомогательными массивами.
+         */
+        int[] nums7 = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        method7(nums7, 3);
     }
 
     /*
@@ -98,10 +106,18 @@ public class Main {
      */
     public static void method7(int[] nums7, int quantity) {
         int n = Math.abs(quantity);
+
+        System.out.println("Массив до: " + Arrays.toString(nums7));
+
         for (int i = 0; i != n; i++) {
-            for (int j = 0; j <= nums7.length; j++) {
-                nums7[j] = nums7[j + 1];
+            for (int j = 0; j < nums7.length; j++) {
+                if (j != nums7.length - 1) {
+                    nums7[j] = nums7[j + 1];
+                } else {
+                    nums7[j] = 0;
+                }
             }
         }
+        System.out.println("Массив после: " + Arrays.toString(nums7));
     }
 }
