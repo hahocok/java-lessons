@@ -1,17 +1,13 @@
 package com.company.parcipants;
 
-import java.util.Random;
-
 public class Human implements Participant {
-    private String name;
-    private int maxRunDistance;
-    private int maxJumpHeight;
+    private final String name;
+    private final int maxRunDistance = 10 + (int)(Math.random()*40);
+    private final int maxJumpHeight = 10 + (int)(Math.random()*20);
     private boolean finish;
 
     public Human(String name) {
         this.name = name;
-        this.maxRunDistance = 10 + (int)(Math.random()*40);
-        this.maxJumpHeight = 10 + (int)(Math.random()*20);
     }
 
     @Override
@@ -46,11 +42,6 @@ public class Human implements Participant {
         if (finish) {
             System.out.println("Имя: " + name + " - прошел испытание");
         }
-    }
-
-    @Override
-    public boolean isFinish() {
-        return finish;
     }
 
     public void setFinish() {

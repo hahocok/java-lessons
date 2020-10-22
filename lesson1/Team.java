@@ -5,7 +5,7 @@ import com.company.parcipants.Participant;
 
 public class Team {
     private final String name;
-    private Participant[] participants;
+    private final Participant[] participants;
 
     public Team(String name, Participant ...participants) {
         this.name = name;
@@ -15,22 +15,25 @@ public class Team {
     public void doIt(Obstacle[] obstacles) {
         if (obstacles != null && obstacles.length > 0) {
             for (Participant participant : participants) {
-                if (participant != null) {
-                    int countFinishingObstacles = 0;
-                    for (Obstacle obstacle : obstacles) {
-                        if (obstacle != null) {
-                            if (obstacle.doIt(participant)) {
-                                countFinishingObstacles++;
-                            } else {
-                                break;
-                            }
-                        }
-                    }
-                    if (countFinishingObstacles == obstacles.length) participant.setFinish();
-                }
-                System.out.println("--------------------");
+                doIt(participant, obstacles);
             }
         }
+    }
+
+    private void doIt(Participant participant, Obstacle[] obstacles) {
+        int countFinishingObstacles = 0;
+        for (Obstacle obstacle : obstacles) {
+            if (obstacle.doIt(participant)) {
+                countFinishingObstacles++;
+            } else {
+                break;
+            }
+        }
+
+        if (countFinishingObstacles == obstacles.length) {
+            participant.setFinish();
+        }
+        System.out.println("--------------------");
     }
 
     public void showInfoAllMembers() {
@@ -46,7 +49,7 @@ public class Team {
     public void showResults() {
         if (participants != null && participants.length > 0) {
             for (Participant participant : participants) {
-                if (participant != null && participant.isFinish()) participant.results();
+                participant.results();
             }
         }
     }

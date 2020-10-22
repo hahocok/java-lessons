@@ -5,6 +5,5 @@ public interface Participant {
     boolean jump(int height);
     void info();
     void results();
-    boolean isFinish();
     void setFinish();
 }

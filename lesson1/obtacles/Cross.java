@@ -9,12 +9,11 @@ public class Cross extends Obstacle {
         this.length = length;
     }
 
-    public int getLength() {
-        return length;
-    }
-
     @Override
     public boolean doIt(Participant participant) {
+        if (participant == null) {
+            return false;
+        }
         return participant.run(length);
     }
 }

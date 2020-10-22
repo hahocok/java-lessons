@@ -3,7 +3,7 @@ package com.company;
 import com.company.obtacles.Obstacle;
 
 public class Course {
-    private Obstacle[] obstacles;
+    private final Obstacle[] obstacles;
 
     public Course(Obstacle ...obstacles) {
         this.obstacles = obstacles;

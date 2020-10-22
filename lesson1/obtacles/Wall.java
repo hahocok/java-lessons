@@ -9,10 +9,6 @@ public class Wall extends Obstacle {
         this.height = height;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
     @Override
     public boolean doIt(Participant participant) {
         return participant.jump(height);
