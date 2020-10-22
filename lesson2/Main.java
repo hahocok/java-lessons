@@ -1,9 +1,10 @@
 package com.company;
 
 public class Main {
+    private static int MAX_ARR_SIZE = 4;
 
     public static void main(String[] args) {
-        String[][] arrs = new String[4][4];
+        String[][] arrs = new String[MAX_ARR_SIZE][MAX_ARR_SIZE];
 
         fillArr(arrs);
         try {
@@ -16,7 +17,7 @@ public class Main {
     }
 
     public static void checkArr(String[][] arrs) throws MySizeArrayException {
-        if (arrs.length > 4 || arrs[0].length > 4) {
+        if (arrs.length != MAX_ARR_SIZE || arrs[0].length != MAX_ARR_SIZE) {
             throw new MySizeArrayException(4);
         }
     }
