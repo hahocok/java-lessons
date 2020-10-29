@@ -4,11 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final MyMonitor pm = new MyMonitor(Chars.A);
+        final Monitor monitor = new Monitor(Chars.A);
 
-        final Thread t1 = new Thread(new ThreatForPrint("A", Chars.A, pm));
-        final Thread t2 = new Thread(new ThreatForPrint("B", Chars.B, pm));
-        final Thread t3 = new Thread(new ThreatForPrint("C", Chars.C, pm));
+        final Thread t1 = new Thread(new PrintingThread("A", Chars.A, monitor));
+        final Thread t2 = new Thread(new PrintingThread("B", Chars.B, monitor));
+        final Thread t3 = new Thread(new PrintingThread("C", Chars.C, monitor));
 
         t1.start();
         t2.start();
