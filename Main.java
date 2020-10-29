@@ -1,43 +1,46 @@
 package com.company;
 
 public class Main {
+    private static final int MAX_ARR_SIZE = 4;
 
     public static void main(String[] args) {
-        byte b =10;
-        short s = 2404;
-        int i = 123456;
-        long l = 1500L;
-        char c = 'A';
-        float f = 120.0f;
-        double d = 15.1231;
-        boolean bool = true;
-    }
+        String[][] arrs = new String[MAX_ARR_SIZE][MAX_ARR_SIZE];
 
-    public int calc(int a, int b, int c, int d) {
-        return a * (b + (c / d));
-    }
-
-    public boolean checkRange(int a, int b) {
-        return a + b >= 10 && a + b <= 20;
-    }
-
-    public void checkNum(int a) {
-        if (a >= 0) {
-            System.out.println("Число положительное");
-        } else {
-            System.out.println("Число отрицательное");
+        fillArr(arrs);
+        try {
+            checkArr(arrs);
+            int sum = getSum(arrs);
+            System.out.println("Сумма - " + sum);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void printName(String name) {
-        System.out.println("Привет, " + name);
+    public static void checkArr(String[][] arrs) throws MySizeArrayException {
+        if (arrs.length != MAX_ARR_SIZE || arrs[0].length != MAX_ARR_SIZE) {
+            throw new MySizeArrayException(MAX_ARR_SIZE);
+        }
     }
 
-    public void year(int year) {
-        if (((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0)) {
-            System.out.println("Год високосный");
-        } else {
-            System.out.println("Год не високосный");
+    private static int getSum(String[][] arrs) throws MyArrayDataException {
+        int sum = 0;
+        for (int i = 0; i < arrs.length; i++) {
+            for (int j = 0; j < arrs[i].length; j++) {
+                try {
+                    sum += Integer.parseInt(arrs[i][j]);
+                } catch (NumberFormatException e) {
+                    throw new MyArrayDataException(i, j, arrs[i][j]);
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static void fillArr(String[][] arrs) {
+        for (int i = 0; i < arrs.length; i++) {
+            for (int j = 0; j < arrs[i].length; j++) {
+                arrs[i][j] = Integer.toString(j);
+            }
         }
     }
 }
